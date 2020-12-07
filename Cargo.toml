@@ -11,5 +11,5 @@ gstreamer-app = "0.15"
 gstreamer-audio = "0.15"
 gstreamer-video = "0.15"
 image = "0.23"
-wvr-data = {git = "https://github.com/gurkeclub/wvr-data.git"}
-wvr-io = {git = "https://github.com/gurkeclub/wvr-io.git"}
+wvr-data = {git = "https://github.com/gurkeclub/wvr-data.git", branch="main"}
+wvr-io = {git = "https://github.com/gurkeclub/wvr-io.git", branch="main"}
