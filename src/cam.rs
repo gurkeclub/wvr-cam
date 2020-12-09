@@ -12,7 +12,7 @@ use gst_video;
 
 use wvr_data::Buffer;
 use wvr_data::DataHolder;
-use wvr_io::InputProvider;
+use wvr_data::InputProvider;
 
 type BgrImage = image::ImageBuffer<image::Bgr<u8>, Vec<u8>>;
 type BgraImage = image::ImageBuffer<image::Bgra<u8>, Vec<u8>>;
