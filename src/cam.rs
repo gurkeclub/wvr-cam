@@ -66,7 +66,7 @@ impl CamProvider {
         {
             let video_buffer = video_buffer.clone();
             appsink.set_callbacks(
-                gst_app::AppSinkCallbacks::new()
+                gst_app::AppSinkCallbacks::builder()
                     .new_sample(move |appsink| {
                         let sample = match appsink.pull_sample() {
                             Err(e) => {

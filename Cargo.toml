@@ -6,9 +6,9 @@ edition = "2018"
 
 [dependencies]
 anyhow = "1.0"
-gstreamer = "0.15"
-gstreamer-app = "0.15"
-gstreamer-audio = "0.15"
-gstreamer-video = "0.15"
+gstreamer = "0.16"
+gstreamer-app = "0.16"
+gstreamer-audio = "0.16"
+gstreamer-video = "0.16"
 image = "0.23"
 wvr-data = {git = "https://github.com/gurkeclub/wvr-data.git", branch="main"}
