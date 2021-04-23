@@ -33,6 +33,7 @@ pub struct CamProvider {
 impl CamProvider {
     pub fn new(path: &str, name: String, resolution: (usize, usize)) -> Result<Self> {
         gst::init().expect("Failed to initialize the gstreamer library");
+
         let video_buffer = Arc::new(Mutex::new(Buffer {
             dimensions: vec![resolution.0, resolution.1, 3],
             data: None,
@@ -163,6 +164,12 @@ impl InputProvider for CamProvider {
 
     fn provides(&self) -> Vec<String> {
         vec![self.name.clone()]
+    }
+
+    fn set_property(&mut self, property: &str, value: &DataHolder) {
+        match (property, value) {
+            _ => eprintln!("Set_property unimplemented for {:}", property),
+        }
     }
 
     fn get(&mut self, uniform_name: &str, invalidate: bool) -> Option<DataHolder> {
