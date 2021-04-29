@@ -151,8 +151,8 @@ impl CamProvider {
 
 impl Drop for CamProvider {
     fn drop(&mut self) {
-        if let Err(e) = self.pipeline.set_state(State::Null) {
-            eprintln!("Failed to stop input capture: {:?}", e);
+        if let Err(e) = self.stop() {
+            eprintln!("{:?}", e);
         }
     }
 }
@@ -198,5 +198,28 @@ impl InputProvider for CamProvider {
         } else {
             None
         }
+    }
+
+    fn stop(&mut self) -> Result<()> {
+        self.pipeline
+            .set_state(State::Null)
+            .context("Failed to stop video playback")?;
+
+        Ok(())
+    }
+
+    fn play(&mut self) -> Result<()> {
+        self.pipeline
+            .set_state(State::Playing)
+            .context("Failed to resume video playback")?;
+
+        Ok(())
+    }
+    fn pause(&mut self) -> Result<()> {
+        self.pipeline
+            .set_state(State::Paused)
+            .context("Failed to pause video playback")?;
+
+        Ok(())
     }
 }
